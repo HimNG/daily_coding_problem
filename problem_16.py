@@ -20,11 +20,13 @@ class Queue:
     def isEmpty(self):
         return self.items == []
 
+    # time/space complexity : O(1)/O(N)
     def record(self, item):
         if self.size() >= self.s:
             self.deQueue()
         self.enQueue(item)
 
+    # time/space complexity : O(N)/nil
     def get_last(self, nbr):
         print(self.items[-nbr:])
 
