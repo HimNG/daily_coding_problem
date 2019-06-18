@@ -19,14 +19,14 @@ def isSafe(arr, row, col):
     return True
 
 
-def NqueueProblemUtil(arr, r):
+def NqueenProblemUtil(arr, r):
     if r == N:
         return True
 
     for i in range(N):
         if(isSafe(arr, r, i)):
             arr[r][i] = 1
-            if NqueueProblemUtil(arr, r+1):
+            if NqueenProblemUtil(arr, r+1):
                 return True
 
             arr[r][i] = 0
@@ -34,19 +34,18 @@ def NqueueProblemUtil(arr, r):
     return False
 
 
-def NqueueProblem():
+def NqueenProblem():
     # arr = [[0] * N] * N   # dangerous to create 2D array like this.
     arr = [[0 for i in range(N)] for j in range(N)]
     # print(arr)
-    if not NqueueProblemUtil(arr, 0):
+    if not NqueenProblemUtil(arr, 0):
         print("no answer")
         return False
 
-    # print(arr)
-    for row in arr:
-        print(row)
+    print(arr)
+
     return True
 
 
 if __name__ == '__main__':
-    NqueueProblem()
+    NqueenProblem()
